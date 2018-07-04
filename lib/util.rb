@@ -2,7 +2,7 @@ require 'pathname'
 require_relative './dump_prepender'
 
 def get_safe_name(name)
-  bad_characters = /([\/\\<>:"|?*]|[^\u0021-\uFFFF])/
+  bad_characters = /([\/\\<>:"|?*.]|[^\u0021-\uFFFF])/
   clean_name = name.gsub(bad_characters, $config['character_substitute'])
   truncate_to_bytesize(clean_name, 220, '_[truncated]')
 end
